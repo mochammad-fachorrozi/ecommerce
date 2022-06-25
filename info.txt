@@ -1,0 +1,32 @@
+composer require livewire/livewire
+composer require laravel/ui
+php artisan ui:auth
+download cdn bootstrap css dan js, jquery
+php artisan migrate
+tes daftar + login
+cari template admin + pasang
+buat controlleradmin/dashboard
+tambahkan kolom pada table users(role_as) = add_details_to_users_table
+isi field pada field tsb
+php arisan make:middleware Adminmiddleware
+tambahkan script di adminmidleware, login conmtroler, kernel, web, dashboard
+copykan script logout dari sumber ke  template
+buat model category, migration,controller dan route, view
+buat create category
+php artisan make:request CategoryFormRequest
+baut view, model, controller, migrate
+isikan data. testing masukan data
+php artisan make:livewire Admin/Category/Index ->pilih no
+buat edit + delete
+
+make:model Brand -m
+isi migrate + model
+make:livewire Admin/Brand/Index
+isikan view, buat form untuk tambah brand
+tambahkan sintaks wire: pada form, div modal, input
+
+edit, buat a href, buat modal isikan sintaks wire di div pada modal, wire di a,
+buat delete seperti edit
+
+membuat product, buat table product dan image , isi kolom, buat model, controller, view
+make:request productFromRequest
