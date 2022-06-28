@@ -71,7 +71,7 @@ class ProductFormRequest extends FormRequest
             'meta_title' => [
                 'required',
                 'string',
-                'max:255'
+                'max:255',
             ],
             'meta_keyword' => [
                 'required',
@@ -80,6 +80,10 @@ class ProductFormRequest extends FormRequest
             'meta_description' => [
                 'required',
                 'string',
+            ],
+            'image' => [
+                'nullable',
+                // 'mimes:png,jpg,jpeg'
             ],
         ];
     }
