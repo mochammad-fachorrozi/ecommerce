@@ -28,7 +28,6 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
     
     Route::get('dashboard', [DashboardController::class, 'index']);
@@ -69,7 +68,6 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
     // Route::get('category/create', [CategoryController::class, 'create']);
     // Route::post('category', [CategoryController::class, 'store']);
 });
-
 
 Route::get('/browser', [Controller::class, 'index']);
 // Route::get('/category/tes', [Controller::class, 'category']);

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ProductImage;
+use App\Models\ProductColor;
 use App\Models\Category;
 
 class Product extends Model
@@ -27,7 +28,7 @@ class Product extends Model
         'status',
         'meta_title',
         'meta_keyword',
-        'meta_descrption',
+        'meta_description',
     ];
     
     /**
@@ -43,5 +44,10 @@ class Product extends Model
     public function productImages()
     {
         return $this->hasMany(ProductImage::class, 'product_id', 'id');
+    }
+
+    public function productColors()
+    {
+        return $this->hasMany(ProductColor::class, 'product_id', 'id');
     }
 }

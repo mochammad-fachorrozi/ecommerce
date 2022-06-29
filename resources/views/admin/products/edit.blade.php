@@ -85,11 +85,11 @@
                             </div>
                             <div class="mb-3">
                                 <label for="small_description">Small Description (500 Words)</label>
-                                <textarea type="text" name="small_description" id="small_description" class="form-control" rows="4">{{ $product->small_description }}</textarea>
+                                <textarea name="small_description" id="small_description" class="form-control" rows="4">{{ $product->small_description }}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="description">Description</label>
-                                <textarea type="text" name="description" id="description" class="form-control" rows="4">{{ $product->description }}</textarea>
+                                <textarea name="description" id="description" class="form-control" rows="4">{{ $product->description }}</textarea>
                             </div>
                         </div>
 
@@ -100,11 +100,11 @@
                             </div>
                             <div class="mb-3">
                                 <label for="meta_keyword">Meta Keyword</label>
-                                <textarea type="text" name="meta_keyword" id="meta_keyword" class="form-control">{{ $product->meta_keyword }}</textarea>
+                                <textarea name="meta_keyword" id="meta_keyword" class="form-control">{{ $product->meta_keyword }}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="meta_description">Meta Description</label>
-                                <textarea type="text" name="meta_description" id="meta_description" class="form-control">{{ $product->meta_description }}</textarea>
+                                <textarea name="meta_description" id="meta_description" class="form-control">{{ $product->meta_description }}</textarea>
                             </div>
                         </div>
 

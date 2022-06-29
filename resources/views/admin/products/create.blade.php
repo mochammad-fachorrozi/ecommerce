@@ -81,11 +81,11 @@
                             </div>
                             <div class="mb-3">
                                 <label for="small_description">Small Description (500 Words)</label>
-                                <textarea type="text" name="small_description" id="small_description" class="form-control" rows="4"></textarea>
+                                <textarea name="small_description" id="small_description" class="form-control" rows="4"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="description">Description</label>
-                                <textarea type="text" name="description" id="description" class="form-control" rows="4"></textarea>
+                                <textarea name="description" id="description" class="form-control" rows="4"></textarea>
                             </div>
                         </div>
 
@@ -96,11 +96,15 @@
                             </div>
                             <div class="mb-3">
                                 <label for="meta_keyword">Meta Keyword</label>
-                                <textarea type="text" name="meta_keyword" id="meta_keyword" class="form-control"></textarea>
+                                <textarea name="meta_keyword" id="meta_keyword" class="form-control"></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="meta_description">Meta description</label>
-                                <textarea type="text" name="meta_description" id="meta_description" class="form-control"></textarea>
+                                <label for="meta_description">Meta Description</label>
+                                <textarea name="meta_description" id="meta_description" class="form-control"></textarea>
+
+                                @error('meta_description')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             
                         </div>
@@ -155,12 +159,12 @@
 
                                     @forelse ($colors as $color)
                                     <div class="col-md-3">
-                                        <div class="p-2 border">
+                                        <div class="p-2 border mb-3">
                                             <label for="colors">Color: </label>
-                                            <input type="checkbox" name="colors[]" id="colors" value="{{ $color->id }}"> {{ $color->name }}
+                                            <input type="checkbox" name="colors[{{ $color->id }}]" id="colors" value="{{ $color->id }}"> {{ $color->name }}
                                             <br>
                                             <label for="quantity">Quantity</label>
-                                            <input type="number" name="quantity[]" style="width: 70px; border:1px solid">
+                                            <input type="number" name="colorQuantity[{{ $color->id }}]" style="width: 70px; border:1px solid">
                                         </div>
                                     </div>
                                         

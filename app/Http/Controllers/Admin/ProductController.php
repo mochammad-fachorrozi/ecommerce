@@ -71,6 +71,16 @@ class ProductController extends Controller
             }
         }
 
+        if($request->colors) {
+            foreach ($request->colors as $key => $color) {
+                $product->productColors()->create([
+                    'product_id' => $product->id,
+                    'color_id' => $color,
+                    'quantity' => $request->colorQuantity[$key] ?? 0
+                ]);
+            }
+        }
+
         return redirect('/admin/products')->with('message', 'Product Added Successfully.');
         // return $product->id;
     }
@@ -105,7 +115,7 @@ class ProductController extends Controller
                 'status' => $request->status == true ? '1':'0',
                 'meta_title' => $validatedData['meta_title'],
                 'meta_keyword' => $validatedData['meta_keyword'],
-                'meta_description' => $validatedData['meta_description']
+                'meta_description' => $validatedData['meta_description'],
             ]);
 
             if($request->hasFile('image')) {
