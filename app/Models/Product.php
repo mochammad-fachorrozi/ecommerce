@@ -14,6 +14,7 @@ class Product extends Model
 
     protected $table = 'products';
 
+    // $guarded = selain ini
     protected $fillable = [
         'category_id',
         'name',
@@ -30,6 +31,15 @@ class Product extends Model
         'meta_keyword',
         'meta_description',
     ];
+
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, function($query, $search) {
+            return $query->where('name', 'like', '%'. $search .'%')
+                        ->orWhere('selling_price', 'like', '%'. $search .'%');
+        });
+    }
     
     /**
      * Get the category that owns the Product

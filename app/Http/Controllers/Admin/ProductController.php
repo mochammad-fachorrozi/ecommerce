@@ -12,13 +12,15 @@ use App\Models\Color;
 use App\Http\Requests\ProductFormRequest;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+use PDF;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-        return view('admin.products.index', compact('products'));
+        return view('admin.products.index', [
+            'products' => Product::latest()->filter(request(['search']))->paginate(3)
+        ]);
     }
 
     public function create()
@@ -166,4 +168,48 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->back()->with('message','Product Deleted with all its image');
     }
+
+    public function exportPdf()
+    {
+        $products = Product::get();
+
+        // $data = [
+        //     'title' => 'Data Products',
+        //     'products' => $products
+        // ];
+
+        $pdf = PDF::loadView('admin.products.export-pdf', [
+            'title' => 'Data Products',
+            'products' => $products,
+        ])->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('product-ecommerce.pdf');
+    }
+
+    // public function search(Request $request, $search)
+    // {
+        // $search = $request->search;
+        
+        // $products = Product::query()
+        //             ->where('name', 'LIKE', "%{$search}%")
+        //             ->orWhere('original_price', 'LIKE', "%{$search}%")
+        //             ->get();
+
+        // $users = User::where('active','1')->where(function($query) {
+        // $query->where('email','jdoe@example.com')
+        //             ->orWhere('email','johndoe@example.com');
+        //     })->get();
+
+        //     $result = Marriage::where('name','LIKE','%'.$email_or_name.'%')
+        //         ->orWhere('email','LIKE','%'.$email_or_name.'%')
+        //         ->get();
+
+        // $products = Product::where('name', 'LIKE', '%'. $search .'%')
+        //                     ->orWhere('original_price', 'LIKE', '%'. $search .'%')
+        //                     ->get();
+
+        // $products = Product::search('name original_price')->get();
+
+    //     return view('admin.products.index', compact('products'));
+    // }
 }

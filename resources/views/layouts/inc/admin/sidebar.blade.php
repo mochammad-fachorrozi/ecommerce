@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ url('admin/dashboard') }}">
           <i class="mdi mdi-home menu-icon"></i>
           <span class="menu-title">Dashboard</span>
         </a>
@@ -19,6 +19,7 @@
           <span class="menu-title">Category</span>
         </a>
       </li>
+      
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="mdi mdi-plus-circle menu-icon"></i>
