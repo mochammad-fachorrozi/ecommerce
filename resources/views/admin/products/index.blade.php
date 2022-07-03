@@ -26,7 +26,7 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                               <li><a class="dropdown-item text-danger" href="{{ url('admin/exportPdf') }}"><i class="fa-solid fa-file-pdf"></i> Pdf</a></li>
-                              <li><a class="dropdown-item text-success" href="#"><i class="fa-solid fa-file-excel"></i> Excel</a></li>
+                              <li><a class="dropdown-item text-success" href="{{ url('admin/exportExcel') }}"><i class="fa-solid fa-file-excel"></i> Excel</a></li>
                             </ul>
                         </div>
                     </div>

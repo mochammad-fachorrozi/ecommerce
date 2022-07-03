@@ -13,6 +13,8 @@ use App\Http\Requests\ProductFormRequest;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use PDF;
+use App\Exports\ProductsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
@@ -183,7 +185,13 @@ class ProductController extends Controller
             'products' => $products,
         ])->setOptions(['defaultFont' => 'sans-serif']);
 
-        return $pdf->download('product-ecommerce.pdf');
+        // return $pdf->download('product-ecommerce.pdf');
+        return $pdf->stream('product-ecommerce.pdf');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new ProductsExport, 'product-ecommerce.xlsx');
     }
 
     // public function search(Request $request, $search)

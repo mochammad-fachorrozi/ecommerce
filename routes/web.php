@@ -53,6 +53,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
         Route::get('product-image/{product_image_id}/delete', 'destroyImage');
 
         Route::get('exportPdf', 'exportPdf');
+        Route::get('exportExcel', 'exportExcel');
     });
     
     Route::get('/brands', Brand\Index::class);
