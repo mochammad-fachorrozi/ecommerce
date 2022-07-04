@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+
 
 class DashboardController extends Controller
 {
@@ -14,7 +17,30 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        // $data['pieChart'] = Product::select(\DB::raw("COUNT(*) as count"), \DB::raw("MONTHNAME(created_at) as month_name"))
+        // ->whereYear('created_at', date('Y'))
+        // ->groupBy('brand')
+        // ->orderBy('count')
+        // ->get();
+
+        // $data['pieChart'] = Product::select(\DB::raw(" 'COUNT' 'name', 'brand'"))
+        // ->groupBy('brand')
+        // ->get();
+
+        $result = DB::select(DB::raw("select count(*) as total_brand, brand from products group by brand"));
+        $chartData ="";
+        foreach ($result as $list) {
+            $chartData.="['".$list->brand."', ".$list->total_brand."],";
+        }
+        $arr['chartData'] =rtrim($chartData,",");
+
+        // dd($result);
+
+        // return view('admin.dashboard', [
+        //     'arr' => $arr,
+        // ]);
+
+        return view ('admin.dashboard', $arr);
     }
 
     /**

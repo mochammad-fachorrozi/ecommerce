@@ -20,6 +20,7 @@ class ProductController extends Controller
 {
     public function index()
     {
+        // search dari pak dika
         return view('admin.products.index', [
             'products' => Product::latest()->filter(request(['search']))->paginate(3)
         ]);
