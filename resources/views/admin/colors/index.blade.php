@@ -12,7 +12,7 @@
             <div class="card-header">
                 <h3>
                     Colors List
-                    <a href="{{ url('admin/colors/create') }}" class="btn btn-primary btn-sm text-white float-end">Add Color</a>
+                    <a href="{{ url('admin/colors/create') }}" class="btn btn-primary text-white float-end">Add Color</a>
                 </h3>
             </div>
             <div class="card-body">
@@ -20,7 +20,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>ID</th>
+                            {{-- <th>ID</th> --}}
                             <th>Color Name</th>
                             <th>Color Code</th>
                             <th>Status</th>
@@ -32,7 +32,7 @@
                         <tr>
 
                             <td>{{ $key+1 }}</td>
-                            <td>{{ $color->id }}</td>
+                            {{-- <td>{{ $color->id }}</td> --}}
                             <td>{{ $color->name }}</td>
                             <td>{{ $color->code }}</td>
                             <td>{{ $color->status ? 'Hidden':'Visible' }}</td>

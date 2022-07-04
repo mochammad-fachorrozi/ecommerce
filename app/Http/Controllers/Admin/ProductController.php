@@ -193,6 +193,14 @@ class ProductController extends Controller
     public function exportExcel()
     {
         return Excel::download(new ProductsExport, 'product-ecommerce.xlsx');
+        // $products = Product::get();
+
+        // $excel = Excel::loadView('admin.products.export-pdf', [
+        //     'title' => 'Data Products',
+        //     'products' => $products,
+        // ])->setOptions(['defaultFont' => 'sans-serif']);
+
+        // return $excel->download('product-ecommerce.xlsx');
     }
 
     // public function search(Request $request, $search)

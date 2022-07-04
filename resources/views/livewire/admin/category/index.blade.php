@@ -33,16 +33,16 @@
     <div class="card">
         <div class="card-header">
             <h4>Category
-                <a href="{{ url('admin/category/create') }}" class="btn btn-primary float-end">Add Category</a>
+                <a href="{{ url('admin/category/create') }}" class="btn btn-primary float-end text-white">Add Category</a>
             </h4>
         </div>
 
-        <div class="car-body">
-          <table class="table table-bordered table-striped">
+        <div class="card-body">
+          <table class="table table-bordered table-striped data">
             <thead>
               <tr>
                 <th>No</th>
-                <th>ID</th>
+                {{-- <th>ID</th> --}}
                 <th>Name</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -53,7 +53,7 @@
               @foreach ($categories as $key=>$category)
                   <tr>
                     <td>{{ $key+1 }}</td>
-                    <td>{{ $category->id }}</td>
+                    {{-- <td>{{ $category->id }}</td> --}}
                     <td>{{ $category->name }}</td>
                     <td>{{ $category->status == '1' ? 'Hidden':'Visible' }}</td>
                     <td>

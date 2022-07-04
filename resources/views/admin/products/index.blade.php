@@ -12,12 +12,12 @@
             <div class="card-header">
                 <h3>
                     Products
+                    <a href="{{ url('admin/products/create') }}" class="btn btn-primary text-white float-end">Add Product</a>
                 </h3>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4">
-                        <a href="{{ url('admin/products/create') }}" class="btn btn-primary text-white">Add Product</a>
                     </div>
                     <div class="col-md-4">
                         <div class="btn-group dropend" role="group">
@@ -35,14 +35,14 @@
                             {{-- <input type="text" name="search" id="search" class="form-control float-end" placeholder="Search now" aria-label="search" aria-describedby="search">
                             <button type="submit">Search</button> --}}
                             <div class="input-group">
-                                <input type="text" name="search" id="search" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" value="{{ request('search') }}">
+                                <input type="text" name="search" id="search" class="form-control" placeholder="Input keyword ..." aria-label="Input group example" aria-describedby="btnGroupAddon" value="{{ request('search') }}">
                                 <button type="submit" class="input-group-text" id="btnGroupAddon">Search</button>
                               </div>
                         </form>
                     </div>
                 </div>
 
-                <table class="table table-bordered table-striped mt-5">
+                <table class="table table-bordered table-striped my-4">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -86,11 +86,11 @@
                         @endforelse
                     </tbody>
                 </table>
+                {{ $products->links() }}
             </div>
         </div>
     </div>
 </div>
 
-{{ $products->links() }}
 
 @endsection
