@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Livewire\Admin\Brand;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,16 +21,18 @@ use App\Http\Livewire\Admin\Brand;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [HomeController::class, 'index']);
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
-    
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
+
     Route::get('dashboard', [DashboardController::class, 'index']);
 
     // category routes
@@ -55,7 +58,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function() {
         Route::get('exportPdf', 'exportPdf');
         Route::get('exportExcel', 'exportExcel');
     });
-    
+
     Route::get('/brands', Brand\Index::class);
 
     Route::controller(ColorController::class)->group(function () {
