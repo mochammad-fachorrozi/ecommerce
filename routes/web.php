@@ -26,7 +26,16 @@ use App\Http\Controllers\Admin\DashboardController;
 //     return view('welcome');
 // });
 
-Route::get('/', [HomeController::class, 'index']);
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/product', 'product');
+    Route::get('/cart', 'cart');
+    Route::get('/checkout', 'checkout');
+    Route::get('/my-account', 'myAccount');
+    Route::get('/wishlist', 'wishlist');
+    Route::get('/login-test', 'login');
+    Route::get('/contact', 'contact');
+});
 
 Auth::routes();
 
