@@ -19,7 +19,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
                         <div class="dropdown-menu">
                             <a href="{{ url('/wishlist') }}" class="dropdown-item">Wishlist</a>
-                            <a href="{{ url('/login-test') }}" class="dropdown-item">Login & Register</a>
+                            <a href="{{ url('/login-user') }}" class="dropdown-item">Login & Register</a>
                             <a href="{{ url('/contact') }}" class="dropdown-item">Contact Us</a>
                         </div>
                     </div>

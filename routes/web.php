@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UserController;
 
 
 /*
@@ -33,13 +34,15 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/checkout', 'checkout');
     Route::get('/my-account', 'myAccount');
     Route::get('/wishlist', 'wishlist');
-    Route::get('/login-test', 'login');
+    Route::get('/login-user', 'login');
     Route::get('/contact', 'contact');
 });
 
 Auth::routes();
 
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+Route::get('/home', [HomeController::class, 'home'])->name('home');
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
@@ -78,6 +81,10 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/colors/{color}/edit', 'edit');
         Route::put('/colors/{color_id}', 'update');
         Route::get('/colors/{color_id}/delete', 'destroy');
+    });
+
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/users', 'index');
     });
     // category routes
     // Route::get('category', [CategoryController::class, 'index']);
