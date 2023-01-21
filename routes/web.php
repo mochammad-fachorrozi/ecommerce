@@ -5,11 +5,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\UserController;
 
 
 /*
@@ -47,6 +48,11 @@ Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::get('dashboard', [DashboardController::class, 'index']);
+
+    Route::controller(SliderController::class)->group(function () {
+        Route::get('sliders', 'index');
+        Route::get('sliders/create', 'create');
+    });
 
     // category routes
     Route::controller(CategoryController::class)->group(function () {
