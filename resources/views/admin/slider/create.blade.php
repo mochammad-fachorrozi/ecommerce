@@ -17,16 +17,20 @@
             </div>
             <div class="card-body">
 
-                <form action="{{ url('admin/colors') }}" method="POST">
+                <form action="{{ url('admin/sliders') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                     <div class="mb-3">
-                        <label for="name">Color Name</label>
-                        <input type="text" name="name" id="name" class="form-control" required>
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="code">Color Code</label>
-                        <input type="text" name="code" id="code" class="form-control" required>
+                        <label for="description">Description</label>
+                        <input type="text" name="description" id="description" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image">Image</label>
+                        <input type="file" name="image" id="image" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="status">Status</label> <br>
