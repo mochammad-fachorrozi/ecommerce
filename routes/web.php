@@ -52,7 +52,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::controller(SliderController::class)->group(function () {
         Route::get('sliders', 'index');
         Route::get('sliders/create', 'create');
-        Route::post('sliders', 'store');
+        Route::post('sliders/create', 'store');
     });
 
     // category routes

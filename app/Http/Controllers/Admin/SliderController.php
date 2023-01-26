@@ -11,7 +11,8 @@ class SliderController extends Controller
 {
     public function index()
     {
-        return view('admin.slider.index');
+        $sliders = Slider::all();
+        return view('admin.slider.index', compact('sliders'));
     }
 
     public function create()
@@ -21,7 +22,7 @@ class SliderController extends Controller
 
     public function store(SliderFormRequest $request)
     {
-         $validatedData = $request->validate();
+         $validatedData = $request->validated();
 
          if ($request->hasFile('image')) {
             $file = $request->file('image');

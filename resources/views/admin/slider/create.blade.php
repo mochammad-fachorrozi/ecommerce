@@ -17,7 +17,7 @@
             </div>
             <div class="card-body">
 
-                <form action="{{ url('admin/sliders') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('admin/sliders/create') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                     <div class="mb-3">
@@ -34,7 +34,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="status">Status</label> <br>
-                        <input type="checkbox" name="status" id="status" style="width:50px;height:50px;"> Checked=Hidden,UnChecked=Visible
+                        <input type="checkbox" name="status" id="status" style="width:30px;height:30px;"> Checked=Hidden,UnChecked=Visible
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary">Save</button>

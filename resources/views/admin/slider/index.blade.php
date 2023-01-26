@@ -28,7 +28,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        @foreach ($sliders as $slider)
+                            <tr>
+                                <td>{{ $slider->id }}</td>
+                                <td>{{ $slider->title }}</td>
+                                <td>{{ $slider->description }}</td>
+                                <td>
+                                    <img src="{{ asset("$slider->image") }}" style="width: 70px; height: 70px" alt="Slider Image">
+                                </td>
+                                <td>{{ $slider->status == '0' ? 'Visible':'Hidden' }}</td>
+                                <td>
+                                    <a href="{{ url('admin/sliders/'.$slider->id.'/edit') }}" class="btn btn-success">Edit</a>
+                                    <a href="" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
 
